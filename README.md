@@ -1,27 +1,73 @@
-# Test
+angular cli ---
+1- nodejs installation 
+npm install -g @angular/cli --> latest version locally 
+ng --version // check s the version 
+ng help serve --> command help for ang cli 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
 
-## Development server
+create project 
+1- ng new my-first-project 
+2- Add routing -. yes 
+3- enter css
+4- ng serve -o
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Angular material installation 
+ng add @angular/material
 
-## Code scaffolding
+angular components ---
+every compnent has 2 element 
+1. html (template)
+2. typescipt (code)
+3. metadata(css )
+root component -- app component
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+creating component 
+ng g c demo
+add it in the app.module.ts
+add the selector in the index.html 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Template - section of html to be included 
+1- inline template 
+2- template file - file
+3- template variables 
+4- app.component- default template 
+5- material dashoard angular light dashboard , now ui dashboard angular 
+6- {{title}} for variables 
+7- ngFor - iterate - array
 
-## Running unit tests
+sharing data between components 
+1= parent to child == @input decorator 
+app-component(parent) -> navabr(child component)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  @Input()  fromParent!: string; (why exclaimatory required??)
 
-## Running end-to-end tests
+child --> parent 
+from viewchild and string interpolation
+1- viewChild , output
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+viewChild
+  @ViewChild(PostComponent) childComp:any;
+  AfterViewInit -- to use the child class components 
 
-## Further help
+  Displaying Data
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  <img [src] ="variableName"> //prperty Bindiing
+
+  [class.text-red] = "bool" // class binding in angular 
+   [style.color] = "bool?'red':'green'" // inline styling 
+
+   Event Binding
+
+   (click)="functonName()"  the function to defined inside class
+  keyup , $event can be passed 
+  --------- Event Filtering ------
+   $event.keyCode  
+   (keyup.enter)= "functon()";
+
+   Id-----------
+   <input type = "text" #username>
+
+   Data-2 way binding using ngModel------------
+
+   <input type="text" [(ngModel)]="userName" (keyup.enter) = "onKeyup()"  >   

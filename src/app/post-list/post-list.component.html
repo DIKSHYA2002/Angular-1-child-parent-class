@@ -2,3 +2,6 @@
 <div>
     {{fromPostParent}}
 </div>
+<button  (click) = 'buttonClick()' >Click Me postlist </button>
+<input type="text"  #username >    
+<input type="text" [(ngModel)]="userName" (keyup.enter) = "onKeyup()"  >    
