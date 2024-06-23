@@ -2,9 +2,66 @@
 <a>Angular Directives
     1. Component (template view )
     2- sstructur Dom layout by adding removing elements
-    3- attribute change the befre of atrribute component directive 
-    custom  
-     <button (click) = "addNew()">Add new Data</button>
-    <li *ngFor ="let post of objArray">{{post | json}}</li>
-    <li *ngFor ="let post of objArray ; let i = index"> {{i}}{{post.ptitle}} <button (click) = "delete(i)">Delete</button></li>
+    3- attribute change the befre of atrribute component directive
+    custom
+    <button (click)="addNew()">Add new Data</button>
+    <li *ngFor="let post of objArray">{{post | json}}</li>
+    <li *ngFor="let post of objArray ; let i = index"> {{i}}{{post.ptitle}} <button (click)="delete(i)">Delete</button>
+    </li>
+
+    Fetching Object Araay----------------
+    <div *ngIf='objArray.length >0'>
+        not empty
+    </div>
+    <div *ngIf='objArray.length == 0'>
+        empty
+    </div>
+
+    <h2>Usage for ng-directive</h2>
+    <div *ngIf='objArray.length >0; then yesData else noData'>
+        not empty
+    </div>
+
+    <ng-template #noData>
+        <div>
+            empty
+        </div>
+    </ng-template>
+    <ng-template #yesData>
+        <div>
+            not empty
+        </div>
+    </ng-template>
+    <div>
+        <button (click)="onSwitchClick('step 1')">Step1</button>
+        <button (click)="onSwitchClick('step 2')">Step2</button>
+        <button (click)="onSwitchClick('step 3')">Step3</button>
+
+    </div>
+    <div [ngSwitch]="stepForm">
+        <div *ngSwitchCase ="'step 1'">
+            Step1 Form
+        </div>
+        <div *ngSwitchCase ="'step 2'">
+            Step2 Form
+        </div>
+        <div *ngSwitchCase ="'step 3'">
+            Step3Form
+        </div>
+
+    </div>
+    
+
+    <h1  [ngClass] = "{
+        'main': isActive,
+        'text-weight' :isActive
+    }"> NG-CLASS</h1>
+
+
+
 </a>
+
+<h1>{{title |  uppercase}} </h1>
+<h1>{{title |  lowercase}} </h1>
+<h1>{{count |  number}} </h1>
+<h1>{{count |  number:'1.2-2'}} </h1>

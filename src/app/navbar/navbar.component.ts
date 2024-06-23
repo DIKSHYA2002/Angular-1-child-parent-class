@@ -6,6 +6,10 @@ import { Component } from "@angular/core";
 })
 export class NavbarComponent
 {
+    title:string = " piping";
+    count:number = 12345.43455;
+    isActive:boolean =true;
+    stepForm:string="";
     objArray : Array<any> =
     [
         {id:1 , ptitle:"post 1 "},
@@ -28,6 +32,11 @@ export class NavbarComponent
         // let i = this.objArray.indexOf(param); we can pass the index directly rather than passing the whole object
          this.objArray.splice(param,1);
 
+    }
+
+    onSwitchClick(param:any)
+    {
+        this.stepForm = param;
     }
 
 }

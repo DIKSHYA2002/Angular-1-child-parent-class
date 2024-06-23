@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,9 @@ import { PostListComponent } from './post-list/post-list.component';// no extens
   ],
   imports: [
     BrowserModule,
+    // RouterModule.forRoot([
+    //   {path:'posts' , component: PostListComponent}
+    // ]),  not required as the router module has a separate file 
     FormsModule,
     AppRoutingModule
   ],

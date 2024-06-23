@@ -71,3 +71,135 @@ viewChild
    Data-2 way binding using ngModel------------
 
    <input type="text" [(ngModel)]="userName" (keyup.enter) = "onKeyup()"  >   
+
+   NG-TEMPLATE ONLY WORKS --> simple div doesnt work 
+   <ng-template #noData>
+        <div >
+            empty
+        </div>
+    </ng-template>
+
+    cannot use  this as a simple html element
+
+NG-SWITCH 
+
+NG-CLASS
+  <h1  [ngClass] = "{
+        'main': isActive,
+        'text-weight' :isActive
+    }"> NG-CLASS</h1>
+
+
+    Angular-Directives--------
+    Structural Directives --> manipulating dom structure 
+    * symbal leads them *ngFor , *ngIf , *ngSwitchCase 
+    
+    Atrribute--> [ngStyle] , [ngClass] change the appearnace of the dom 
+
+--------------------------------------------------Directives-- End----------------------------------------------------------
+    
+Task to Be Done ---
+1. form and display the data on the sideeeee
+
+------------------------------------------------ANGULAR -PIPE---------------------------------------------------------
+transforming the data only when in need 
+
+1- uppercase , lowercse , decimal , date , json percent 
+slice pipe
+
+custom Pipe-- declare in the app.module.ts then import pipe and piprtransform class and implement it in 
+new export class 
+ng g pipe Pipes/appendCLI
+
+Angular Servicesss-----------------------------------------------------------------------------------------------
+
+share data between 2 unrelated cmponent
+
+if 2 component reuired same fucntion then create an anguular service 
+
+Angular dependency injection --------->
+@Component({
+  providers:[PostService]
+})
+construcotr( private postService :PostService )
+{
+
+}
+// too much memory 
+DI Providers---------------->
+write the services inside providers of the app.module 
+only create instance once  not everytime 
+Injectable --
+import class 
+@Injectable({
+  providedIn:'root',
+})
+
+creating using angular cli ---- ng g s services/user
+blueprint --- ng g i models/post  // interface
+import the interface werever required 
+
+
+angular Servicess END------------------------------------------------------------------------------------------------------------
+
+----ANGULAR-TEMPLATE-FORM------
+1- Template- DRiven for 
+2- reactive form approach 
+#f = 'ngForm' template variable to the form 
+(submit)= 'onSubmit(f)'
+touched,, invalid , valid 
+fullname.touched && fullNme.invalid == true 
+
+ReactiveForms Module
+
+Routing --------------------------------------------------------------------------------------------------------------->
+Navigate  around components 
+1- configure ethe Routes 
+2- Add Router-Outlet 
+3- Add Navigation Link Paths 
+
+Router-outlet is required 
+rounterLink for navigating 
+routerLinkActive 
+[routerLink] = "['/post' , index]"
+
+ capturing paramter --------------->
+ ActivatedRoute 
+ inject the class on the constructor 
+ this.route.paramMap.subscribe(value=>
+ console.log(value))
+
+ RXJS----------------------------->
+ asynchronous programs
+ Observable- continous observe a set of strings data 
+ inside 
+ ngnInit{
+  const obsTest  = new  Observable(observer => {
+    console.log("printed from observer);
+  }).subscribe();
+
+  //javascrit function with some features 
+
+  call an observer by subscribe method 
+
+   Returning in observable -> next("returned from observer);
+   .subscribe(value=> 
+       
+       console.log(value)
+   
+   )
+ }
+
+ Use oF Observer---------------------------------------------------------------->
+ in a noraml function - only one return 
+ in observer- return as many function as we want
+ .next multiple times 
+ Synchronous and Asnchronous Programming --------------------------------------->
+
+ .unsubscribe() -- close the subscribe 
+ ng g module app-routing --module  app --flat      -- separate file for routing 
+ Navigaet Programmatically --------------->
+ this.router.navigate(['/posts' , 1 , 'postTitle']);
+ ng g c fournotFour
+
+ path: "**"
